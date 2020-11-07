@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import defaultAvatar from '../../assets/default_avatar.jpg';
 
@@ -9,14 +9,14 @@ interface AvatarImageProps {
 
 const AvatarImage: React.FC<AvatarImageProps> = ({ src, alt }) => {
   const [avatar, setAvatar] = useState(src);
-  const [errorLoadingAvatar, setErrorLoadingAvatar] = useState(false);
 
   const onError = useCallback(() => {
-    if (!errorLoadingAvatar) {
-      setErrorLoadingAvatar(true);
-      setAvatar('');
-    }
-  }, [errorLoadingAvatar]);
+    setAvatar('');
+  }, []);
+
+  useEffect(() => {
+    setAvatar(src);
+  }, [src]);
 
   return <img src={avatar || defaultAvatar} alt={alt} onError={onError} />;
 };
