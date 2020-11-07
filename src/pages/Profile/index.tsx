@@ -12,6 +12,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
 import { useAuth } from '../../hooks/auth';
+import AvatarImage from '../../components/AvatarImage';
 
 interface ProfileFormData {
   name: string;
@@ -150,7 +151,7 @@ const Profile: React.FC = () => {
           onSubmit={handleSubmit}
         >
           <AvatarInput>
-            <img src={user.avatar_url} alt={user.name} />
+            <AvatarImage src={user.avatar_url} alt={user.name} />
             <label htmlFor="avatar">
               <FiCamera />
 

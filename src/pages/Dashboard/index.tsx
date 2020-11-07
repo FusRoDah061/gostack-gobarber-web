@@ -21,6 +21,7 @@ import {
 import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
+import AvatarImage from '../../components/AvatarImage';
 
 interface MonthAvailabilityItem {
   day: number;
@@ -147,7 +148,7 @@ const Dashboard: React.FC = () => {
           <img src={logoImg} alt="GoBarber" />
 
           <Profile>
-            <img src={user.avatar_url} alt={user.name} />
+            <AvatarImage src={user.avatar_url} alt={user.name} />
 
             <div>
               <span>Bem-vindo,</span>
@@ -177,7 +178,7 @@ const Dashboard: React.FC = () => {
               <strong>Agendamento a seguir</strong>
 
               <div>
-                <img
+                <AvatarImage
                   src={nextAppointment.user.avatar_url}
                   alt={nextAppointment.user.name}
                 />
@@ -206,7 +207,7 @@ const Dashboard: React.FC = () => {
                 </span>
 
                 <div>
-                  <img
+                  <AvatarImage
                     src={appointment.user.avatar_url}
                     alt={appointment.user.name}
                   />
@@ -232,7 +233,7 @@ const Dashboard: React.FC = () => {
                 </span>
 
                 <div>
-                  <img
+                  <AvatarImage
                     src={appointment.user.avatar_url}
                     alt={appointment.user.name}
                   />
